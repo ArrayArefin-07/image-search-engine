@@ -2,7 +2,7 @@ const accessKey = "zEvVrMzy1tpNWz4scPMsvugucB0hX45FSsQ1ZAQqJ24";
 
 const searchForm = document.getElementById("search-form");
 const searchBox = document.getElementById("search-box");
-const searchResults = document.getElementById("search-results");
+const searchResults = document.getElementById("search-result");
 const searchBtn = document.getElementById("show-more-btn");
 
 
@@ -18,12 +18,16 @@ async function searchImages() {
 
   const results = data.results;
 
-  results.map((results => {
+  results.map((result) => {
     const image = document.createElement("img");
-    image.src = results.urls.regular;
+    image.src = result.urls.regular;
     const imageLink = document.createElement("a");
-    imageLink.href = results.links.html;
-  }))
+    imageLink.href = result.links.html;
+    imageLink.target = "_blank";
+
+    imageLink.appendChild(image);
+    searchResults.appendChild(imageLink);
+  })
 
 }
 
