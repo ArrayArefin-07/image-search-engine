@@ -38,3 +38,8 @@ searchForm.addEventListener("submit", (e) => {
   page = 1;
   searchImages();
 });
+
+searchBtn.addEventListener("click", ()=>{
+  page++;
+  searchImages();
+})
